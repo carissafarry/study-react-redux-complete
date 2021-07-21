@@ -6,8 +6,8 @@ class App extends Component {
     ninjas : [
       // * Each array item is a object
       {name: 'Ryu', age: 30, belt: 'black', id: 1},
-      {name: 'Yoshi', age: 30, belt: 'green', id: 2},
-      {name: 'Crystal', age: 30, belt: 'pink', id: 3},
+      {name: 'Yoshi', age: 25, belt: 'green', id: 2},
+      {name: 'Crystal', age: 20, belt: 'pink', id: 3},
     ]
   }
 

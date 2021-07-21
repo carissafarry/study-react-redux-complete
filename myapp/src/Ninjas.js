@@ -16,21 +16,53 @@ const Ninjas = ({ ninjas }) => { // ? auto destructuring props menjadi const nin
     // const ninjas = this.props.ninjas;
 
     // * Membuat konstanta array yang menyimpan per baris data array ninjas (array 2 dimensi menjadi 1 dimensi)
-    const ninjaList = ninjas.map(ninja => {
-        return (
-            <div className="ninja" key={ ninja.id }>
-                <div>Name: { ninja.name }</div>
-                <div>Age: { ninja.age }</div>
-                <div>Belt: { ninja.belt }</div>
-                <hr />
-            </div>
-        )
-    })
+    // * CONDITIONAL OUTPUT : 1
+    // const ninjaList = ninjas.map(ninja => {
+        // if (ninja.age > 20) {
+        //     return (
+        //         <div className="ninja" key={ ninja.id }>
+        //             <div>Name: { ninja.name }</div>
+        //             <div>Age: { ninja.age }</div>
+        //             <div>Belt: { ninja.belt }</div>
+        //             <hr />
+        //         </div>
+        //     )
+        // } else {
+        //     return null;
+        // }
+    // })
+
+    // * CONDITIONAL OUTPUT : 2
+    // const ninjaList = ninjas.map(ninja => {
+    //     // * ternary operators: condition ? (true) : (false)
+    //     return ninja.age > 20 ? (
+    //         <div className="ninja" key={ ninja.id }>
+    //             <div>Name: { ninja.name }</div>
+    //             <div>Age: { ninja.age }</div>
+    //             <div>Belt: { ninja.belt }</div>
+    //             <hr />
+    //         </div>
+    //     ) : null;
+    // })
 
     // * Menampilkan nilai konstanta array ninjaList sebanyak data mapping yang dihasilkan
     return(
         <div className="ninja-list">
-            { ninjaList }
+            {/* { ninjaList } */}
+
+            {/* /// CONDITIONAL OUTPUT : 3 /// */}
+            { 
+                ninjas.map(ninja => {
+                    return ninja.age > 20 ? (
+                        <div className="ninja" key={ ninja.id }>
+                            <div>Name: { ninja.name }</div>
+                            <div>Age: { ninja.age }</div>
+                            <div>Belt: { ninja.belt }</div>
+                            <hr />
+                        </div>
+                    ) : null;
+                })
+            }
         </div>
     )
 }
