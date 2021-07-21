@@ -2,7 +2,7 @@ import React from 'react';
 
 // ! Only use functional components when we don't need the state and we are only primarily concerned with the UI or accepting state to be output in the UI. Functional components can not be used to access it's own state.
 
-const Ninjas = ({ ninjas }) => { // ? auto destructuring props menjadi const ninjas
+const Ninjas = ({ ninjas, deleteNinja }) => { // ? auto destructuring props menjadi const ninjas
 
     // * Dalam CLASS-BASED COMPONENTS, props secara otomatis terikat pada instance component, sehingga harus dipanggil menggunakan "this"
 
@@ -50,7 +50,10 @@ const Ninjas = ({ ninjas }) => { // ? auto destructuring props menjadi const nin
         <div className="ninja-list">
             {/* { ninjaList } */}
 
-            {/* /// CONDITIONAL OUTPUT : 3 /// */}
+            {/* 
+                ///* CONDITIONAL OUTPUT : 3 /// 
+            */}
+
             { 
                 ninjas.map(ninja => {
                     return ninja.age > 20 ? (
@@ -58,6 +61,15 @@ const Ninjas = ({ ninjas }) => { // ? auto destructuring props menjadi const nin
                             <div>Name: { ninja.name }</div>
                             <div>Age: { ninja.age }</div>
                             <div>Belt: { ninja.belt }</div>
+                            {/* //* Anonymous Function.
+                                //? Because we add parentheses after function deleteNinja, we are automatically invoking the function instead of reference it. So, we have to add an anonymous funtion
+                             */}
+                            {/* <button onClick={deleteNinja(ninja.id)}>Delete</button> */}
+                            <button onClick={() => {deleteNinja(ninja.id)}}>Delete</button>
+
+                            {/* 
+                                //* Anonymous function make it not automatically going to be invoked, it's only gonna be invoked when the function surrounding it fires, and thats only fires when we clicked it (onClick)
+                             */}
                             <hr />
                         </div>
                     ) : null;

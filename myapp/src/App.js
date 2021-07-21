@@ -27,6 +27,19 @@ class App extends Component {
     // ? Editing state ninjas secara langsung menggunakan setState tanpa menyalin state terlebih dahulu ke variabel baru ninjas, akan mereset nilai state ninjas. Jadi, state ninjas harus dicopy dulu, baru ditambahkan array state baru, kemudian baru menggunakan setState.
   }
 
+  deleteNinja = (id) => {
+    // console.log(id);
+    // * Using Filter method, dan melakukan loop untuk tiap baris data (menggunakan arrow function)
+    // ? Jika nilai (ninja.id !== id) bernilai benar (id tidak sama), maka akan mereturn nilai true, dan akan dibuang oleh method filter(). Jika bernilai salah (id sama), mereturn nilai false, dan akan ditampung ke variable ninjas.
+    let ninjas = this.state.ninjas.filter(ninja => {
+      return ninja.id !== id
+    });
+
+    this.setState({
+      ninjas: ninjas,
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -34,7 +47,7 @@ class App extends Component {
         <p>Welcome :)</p>
 
         {/* <Ninjas name="Ryu" age="25" belt="black"/> */}
-        <Ninjas ninjas={this.state.ninjas} />
+        <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas} />
         <AddNinja addNinja={this.addNinja}/>
       </div>
     )
