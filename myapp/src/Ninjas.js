@@ -1,4 +1,5 @@
 import React from 'react';
+import './Ninjas.css';
 
 // ! Only use functional components when we don't need the state and we are only primarily concerned with the UI or accepting state to be output in the UI. Functional components can not be used to access it's own state.
 
