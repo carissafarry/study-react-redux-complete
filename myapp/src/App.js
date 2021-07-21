@@ -12,6 +12,21 @@ class App extends Component {
     ]
   }
 
+  addNinja = (ninja) => {
+    // console.log(ninja);
+    ninja.id = Math.random();
+
+    // * Create local variable (let), and use Spread Operator, then Add new ninja state from user input
+    // ? Spread Operator, change every line of array in Ninjas (bcs we have '...'), change into individual object, and putting those objects in the new array (because we have square brackets '[]')
+    let ninjas = [...this.state.ninjas, ninja];
+
+    this.setState({
+      ninjas: ninjas
+    })
+
+    // ? Editing state ninjas secara langsung menggunakan setState tanpa menyalin state terlebih dahulu ke variabel baru ninjas, akan mereset nilai state ninjas. Jadi, state ninjas harus dicopy dulu, baru ditambahkan array state baru, kemudian baru menggunakan setState.
+  }
+
   render() {
     return (
       <div className="App">
@@ -20,7 +35,7 @@ class App extends Component {
 
         {/* <Ninjas name="Ryu" age="25" belt="black"/> */}
         <Ninjas ninjas={this.state.ninjas} />
-        <AddNinja />
+        <AddNinja addNinja={this.addNinja}/>
       </div>
     )
   }
