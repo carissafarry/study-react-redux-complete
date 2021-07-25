@@ -17,7 +17,7 @@ class App extends Component {
     ninja.id = Math.random();
 
     // * Create local variable (let), and use Spread Operator, then Add new ninja state from user input
-    // ? Spread Operator, change every line of array in Ninjas (bcs we have '...'), change into individual object, and putting those objects in the new array (because we have square brackets '[]')
+    // ? Spread Operator, change every line of array in Ninjas (bcs we have '...'), change into individual object, and putting those objects in the new array called ninja (because we have square brackets '[]')
     let ninjas = [...this.state.ninjas, ninja];
 
     this.setState({
